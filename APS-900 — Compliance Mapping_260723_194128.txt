@@ -1,0 +1,190 @@
+APS-900 — Compliance Mapping
+Document ID: APS-900
+Title: Compliance Mapping
+Version: 1.0-DRAFT
+Status: DRAFT
+Classification: Normative Governance Specification
+Authority: APS-001 · APS-100 · APS-200 · APS-300 · APS-400 · APS-500
+
+───
+
+1. Purpose
+APS-900 definiuje mechanizm Traceability w Aura Protocol.
+Każde wymaganie normatywne MUST być możliwe do prześledzenia od źródła wymagania aż do dowodu jego spełnienia.
+
+───
+
+2. Objectives
+Compliance Mapping zapewnia:
+• pełną identyfikowalność (Traceability),
+• możliwość audytu,
+• zgodność pomiędzy dokumentacją i implementacją,
+• analizę wpływu zmian (Impact Analysis),
+• podstawę procesu certyfikacji.
+
+───
+
+3. Mapping Model
+Każde wymaganie przechodzi przez następujący łańcuch:
+text
+AURA Constitution
+        ↓
+APS Requirement
+        ↓
+Protocol Invariant
+        ↓
+Canonical Data Model
+        ↓
+Evidence Model
+        ↓
+Conformance Test
+        ↓
+Reference Fixture
+        ↓
+Evidence Pack
+        ↓
+Reference Implementation
+        ↓
+Release
+
+Brak któregokolwiek ogniwa oznacza niekompletną ścieżkę zgodności.
+
+───
+
+4. Compliance Record
+Każde wymaganie posiada rekord zgodności zawierający:
+• Compliance ID
+• APS Reference
+• Invariant Reference
+• Data Model Reference
+• Evidence Reference
+• Conformance Test Reference
+• Fixture Reference
+• Implementation Reference
+• Release Reference
+• Compliance Status
+
+───
+
+5. Compliance Status
+Każdy rekord posiada jeden status:
+
+Status
+Znaczenie
+
+PASS
+Wymaganie spełnione
+
+FAIL
+Wymaganie niespełnione
+
+PARTIAL
+Spełnione częściowo
+
+NOT VERIFIED
+Niezweryfikowane
+
+DEPRECATED
+Wycofane
+
+
+
+───
+
+6. Impact Analysis
+Każda zmiana dokumentu APS MUST określać wpływ na:
+• Protocol Invariants,
+• Canonical Data Model,
+• Evidence Model,
+• Conformance Tests,
+• Reference Fixtures,
+• Reference Implementations.
+
+───
+
+7. Traceability Matrix
+Przykładowa macierz:
+
+APS
+INV
+CONF
+FIX
+EVID
+STATUS
+
+APS-001 §3
+INV-001
+CONF-001
+FIX-001
+EVID-001
+PASS
+
+APS-300 §5
+INV-004
+CONF-004
+FIX-005
+EVID-005
+PASS
+
+APS-200 §4
+INV-003
+CONF-003
+FIX-003
+EVID-003
+PASS
+
+
+
+───
+
+8. Compliance Report
+Każda implementacja powinna generować raport zawierający:
+• wersję protokołu,
+• wersję implementacji,
+• wyniki testów,
+• identyfikatory Evidence Pack,
+• listę spełnionych i niespełnionych wymagań.
+
+───
+
+9. Certification Rules
+Implementacja może zostać oznaczona jako Aura Protocol Conformant, jeżeli:
+• wszystkie obowiązkowe rekordy mają status PASS,
+• nie występują wymagania z wynikiem FAIL,
+• istnieje pełna ścieżka Traceability dla każdego wymagania.
+
+───
+
+10. Governance
+APS-900 jest dokumentem referencyjnym dla:
+• Architecture Reviews,
+• Compliance Reviews,
+• Audytów,
+• Procesów certyfikacyjnych.
+Każda nowa wersja APS wymaga aktualizacji odpowiednich wpisów w Compliance Mapping.
+
+───
+
+Załącznik A — Canonical Compliance Flow
+text
+Constitution
+      ↓
+Protocol Specification
+      ↓
+Invariant
+      ↓
+Data Model
+      ↓
+Evidence
+      ↓
+Conformance Test
+      ↓
+Reference Fixture
+      ↓
+Implementation
+      ↓
+Evidence Pack
+      ↓
+Compliance Report
+      ↓
+Release

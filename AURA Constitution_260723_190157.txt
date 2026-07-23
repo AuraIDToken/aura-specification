@@ -1,0 +1,192 @@
+AURA Constitution
+Document ID: AURA-CON-001
+Title: AURA Constitution
+Version: 1.0
+Status: FROZEN (po zatwierdzeniu)
+Classification: Canonical Governance Document
+Owner: Chief Architect
+
+───
+
+Preamble
+Aura jest otwartym protokołem zaufania dla systemów sztucznej inteligencji.
+Celem projektu jest ustanowienie jednolitych zasad projektowania, implementacji, weryfikacji i audytu systemów zgodnych z Aura Protocol.
+Niniejsza Konstytucja definiuje nadrzędne zasady projektu. Wszystkie dokumenty, implementacje i decyzje architektoniczne muszą pozostawać z nią zgodne.
+
+───
+
+Article I — Identity
+Aura jest protokołem.
+Nie jest aplikacją, frameworkiem ani modelem AI.
+Każda implementacja Aura jest jedynie referencyjną realizacją specyfikacji.
+
+───
+
+Article II — Mission
+Misją Aura jest zapewnienie:
+• deterministycznego działania,
+• audytowalności,
+• weryfikowalności,
+• zgodności implementacji,
+• niezależności od platformy,
+• długoterminowej stabilności architektury.
+
+───
+
+Article III — Vision
+Aura dąży do ustanowienia otwartego standardu Trust Layer dla systemów AI.
+Standard powinien umożliwiać niezależnym podmiotom ocenę zgodności implementacji z publicznie zdefiniowaną specyfikacją bez konieczności zaufania producentowi oprogramowania.
+
+───
+
+Article IV — Constitutional Principles
+Każda decyzja musi być zgodna z następującymi zasadami:
+1. Specification First.
+2. Determinism by Design.
+3. Conformance Before Features.
+4. Evidence Before Trust.
+5. Human Accountability.
+6. Fail Closed by Default.
+7. Immutable Evidence.
+8. Explicit over Implicit.
+9. Version Everything.
+10. Documentation is Part of the Product.
+
+───
+
+Article V — Canonical Hierarchy
+Hierarchia obowiązujących dokumentów:
+text
+AURA Constitution
+        ↓
+Aura Protocol Specification
+        ↓
+Protocol Invariants
+        ↓
+ADR / ARR / RFC
+        ↓
+Aura Development Playbook
+        ↓
+Repository Documentation
+        ↓
+Implementation
+
+Dokument wyższego poziomu ma pierwszeństwo przed dokumentem niższego poziomu.
+
+───
+
+Article VI — Governance Artifacts
+Projekt wykorzystuje następujące artefakty:
+
+Artefakt
+Cel
+
+ADR
+Rejestr decyzji architektonicznych
+
+ARR
+Rejestr przeglądów architektury
+
+RFC
+Formalna propozycja zmian
+
+ADC
+Ocena pewności decyzji architektonicznych
+
+ACI
+Ocena zgodności architektury
+
+ADM
+Metryki procesu decyzyjnego
+
+EPR
+Evidence Pack Report
+
+
+Każdy artefakt posiada identyfikator, wersję, właściciela i status.
+
+───
+
+Article VII — Governance Lifecycle
+Każda istotna zmiana przechodzi następujący proces:
+text
+Vision
+    ↓
+Specification
+    ↓
+Protocol Invariants
+    ↓
+ADR / RFC
+    ↓
+Conformance
+    ↓
+Implementation
+    ↓
+Evidence
+    ↓
+Architecture Review
+    ↓
+Release
+
+
+───
+
+Article VIII — Authority
+Za projekt odpowiada Chief Architect.
+AI może:
+• analizować,
+• proponować,
+• implementować,
+• przygotowywać testy,
+• wspierać dokumentację.
+AI nie posiada uprawnień do zatwierdzania zmian ani zmiany dokumentów kanonicznych.
+
+───
+
+Article IX — Conformance
+Każda implementacja Aura musi wykazać zgodność z:
+• Aura Protocol Specification,
+• Protocol Invariants,
+• Conformance Test Matrix,
+• obowiązującymi wymaganiami bezpieczeństwa.
+Brak zgodności oznacza brak zgodności z protokołem Aura.
+
+───
+
+Article X — Evidence
+Każda decyzja techniczna o znaczeniu architektonicznym powinna pozostawiać możliwy do zweryfikowania ślad.
+Dowody powinny być:
+• kompletne,
+• niezmienne,
+• możliwe do odtworzenia,
+• powiązane z odpowiednią wersją projektu.
+
+───
+
+Article XI — Amendment Procedure
+Zmiana Konstytucji wymaga:
+1. RFC.
+2. Architecture Review.
+3. Analizy wpływu.
+4. Aktualizacji dokumentów zależnych.
+5. Zatwierdzenia przez Chief Architect.
+Po oznaczeniu wersji jako FROZEN jej treść pozostaje niezmienna.
+
+───
+
+Article XII — Interpretation
+W przypadku niejednoznaczności pierwszeństwo mają:
+1. Misja projektu.
+2. Zasady konstytucyjne.
+3. Zachowanie zgodności z protokołem.
+4. Zachowanie determinizmu.
+5. Zachowanie możliwości audytu.
+
+───
+
+Motto
+Specification creates trust.
+Conformance preserves trust.
+Evidence proves trust.
+
+───

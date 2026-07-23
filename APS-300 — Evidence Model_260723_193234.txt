@@ -1,0 +1,165 @@
+APS-300 — Evidence Model
+Document ID: APS-300
+Title: Evidence Model
+Version: 1.0-DRAFT
+Status: DRAFT
+Classification: Normative Specification
+Authority: APS-001 · APS-100 · APS-200
+
+───
+
+1. Purpose
+APS-300 definiuje kanoniczny model Evidence używany przez Aura Protocol.
+Każde wykonanie zgodnej implementacji MUST umożliwiać wygenerowanie Evidence zgodnego z niniejszą specyfikacją.
+
+───
+
+2. Objectives
+Evidence MUST zapewniać:
+• audytowalność,
+• integralność,
+• identyfikowalność,
+• odtwarzalność (Replay),
+• możliwość niezależnej weryfikacji.
+
+───
+
+3. Evidence Principles
+Każde Evidence MUST być:
+• Immutable (niezmienne),
+• Deterministic (deterministyczne),
+• Traceable (identyfikowalne),
+• Verifiable (weryfikowalne),
+• Versioned (wersjonowane).
+
+───
+
+4. Evidence Types
+Aura definiuje następujące klasy dowodów:
+
+ID
+Typ
+Opis
+
+EVID-CORE
+Core Evidence
+Dowód pojedynczego wykonania
+
+EVID-AUDIT
+Audit Evidence
+Dowód dla procesu audytu
+
+EVID-CONF
+Conformance Evidence
+Dowód przejścia testów zgodności
+
+EVID-REL
+Release Evidence
+Dowód związany z wydaniem
+
+EVID-CHAIN
+Chain Evidence
+Powiązanie z poprzednim wpisem
+
+
+
+───
+
+5. Canonical Evidence Object
+Każdy obiekt Evidence MUST zawierać co najmniej:
+• evidence_id
+• protocol_version
+• schema_version
+• implementation_id
+• execution_id
+• timestamp
+• policy_reference
+• input_hash
+• output_hash
+• evidence_hash
+• previous_evidence_hash(jeżeli dotyczy)
+• attestation_reference
+
+───
+
+6. Evidence Pack
+Evidence Pack to komplet artefaktów opisujących jedno wykonanie.
+Minimalna zawartość:
+• Evidence Object
+• Evaluation Result
+• Policy Reference
+• Attestation
+• Integrity Metadata
+
+───
+
+7. Integrity Requirements
+Evidence MUST:
+• umożliwiać wykrycie każdej modyfikacji,
+• zachowywać integralność kryptograficzną,
+• posiadać jednoznaczny identyfikator,
+• być powiązane z odpowiednią wersją protokołu.
+
+───
+
+8. Evidence Chain
+Jeżeli implementacja przechowuje historię wykonań, kolejne wpisy MAY tworzyć łańcuch poprzez previous_evidence_hash.
+Specyfikacja nie narzuca konkretnego algorytmu kryptograficznego, ale wymaga możliwości niezależnej weryfikacji integralności.
+
+───
+
+9. Verification
+Każde Evidence MUST umożliwiać sprawdzenie:
+• zgodności z APS,
+• zgodności z Protocol Invariants,
+• integralności danych,
+• kompletności wymaganych pól,
+• poprawności powiązań z Evidence Pack.
+
+───
+
+10. Retention & Archival
+Specyfikacja definiuje wymagania dotyczące struktury i weryfikowalności Evidence, natomiast okres przechowywania oraz polityki archiwizacji są określane przez implementację lub obowiązujące przepisy.
+
+───
+
+11. Traceability
+Każde Evidence MUST być możliwe do powiązania z:
+text
+APS Requirement
+        ↓
+Protocol Invariant
+        ↓
+Evaluation
+        ↓
+Evidence
+        ↓
+Conformance Test
+        ↓
+Release
+
+
+───
+
+12. Failure Conditions
+Evidence uznaje się za nieważne, jeżeli:
+• brakuje wymaganych pól,
+• naruszono integralność,
+• nie można zweryfikować powiązania z wykonaniem,
+• nie spełnia wymagań APS-300.
+
+───
+
+13. Compliance
+Implementacja może zostać uznana za zgodną z APS-300 wyłącznie wtedy, gdy każde wygenerowane Evidence spełnia wszystkie wymagania niniejszej specyfikacji.
+
+───
+
+Decyzja architektoniczna
+Na tym etapie proponuję wprowadzenie nowego artefaktu:
+EVIDENCE PROFILE (EPR)
+Profil definiowałby poziom kompletności Evidence dla różnych zastosowań, np.:
+• EPR-CORE – minimalny zestaw dowodów,
+• EPR-AUDIT – rozszerzony zestaw do audytu,
+• EPR-COMPLIANCE – pełny zestaw wymagany do oceny zgodności.
+Pozwoli to zachować jedną specyfikację APS-300, a jednocześnie dostosować zakres Evidence do różnych scenariuszy bez naruszania spójności protokołu.

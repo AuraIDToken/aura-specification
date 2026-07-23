@@ -1,0 +1,303 @@
+AURA Protocol Specification
+APS-000 — Foundation & Terminology
+Document ID: APS-000
+Version: 1.0-DRAFT
+Status: DRAFT
+Classification: Canonical Foundation Specification
+Authority: AURA Constitution v1.0 (FROZEN)
+
+───
+
+1. Purpose
+APS-000 ustanawia wspólny język projektu Aura.
+Wszystkie dokumenty normatywne, implementacje oraz artefakty MUST używać terminów zdefiniowanych w tym dokumencie.
+W przypadku konfliktu znaczeń pierwszeństwo ma APS-000.
+
+───
+
+2. Terminology
+TERM-001 — Aura Protocol
+Formalna specyfikacja określająca wymagania techniczne projektu Aura.
+
+───
+
+TERM-002 — Implementation
+Program realizujący wymagania Aura Protocol Specification.
+Implementacja nie definiuje protokołu.
+
+───
+
+TERM-003 — Conformance
+Stan, w którym implementacja spełnia wszystkie obowiązujące wymagania APS oraz Protocol Invariants.
+
+───
+
+TERM-004 — Protocol Invariant
+Normatywna właściwość, która MUST pozostać zachowana we wszystkich zgodnych implementacjach.
+
+───
+
+TERM-005 — Evidence
+Zbiór danych umożliwiających niezależną weryfikację wykonania protokołu.
+
+───
+
+TERM-006 — Evidence Pack
+Kanoniczny zestaw dowodów przypisany do konkretnego wykonania lub wydania.
+
+───
+
+TERM-007 — Attestation
+Formalne potwierdzenie zgodności wygenerowane zgodnie z wymaganiami protokołu.
+
+───
+
+TERM-008 — Audit Record
+Niezmienny zapis pojedynczego zdarzenia podlegającego audytowi.
+
+───
+
+TERM-009 — Replay
+Możliwość ponownego wykonania procesu z identycznym wynikiem.
+
+───
+
+TERM-010 — Canonical Data Model
+Oficjalny model danych Aura.
+
+───
+
+TERM-011 — Artifact
+Każdy wersjonowany element projektu.
+
+───
+
+TERM-012 — Reference Implementation
+Implementacja wykorzystywana jako wzorzec zgodności.
+
+───
+
+3. Canonical Naming Convention
+Obowiązujące prefiksy:
+
+Prefiks
+Znaczenie
+
+APS
+Aura Protocol Specification
+
+INV
+Protocol Invariant
+
+ADR
+Architecture Decision Record
+
+ARR
+Architecture Review Record
+
+RFC
+Request for Comments
+
+CONF
+Conformance Test
+
+EVID
+Evidence
+
+FIX
+Reference Fixture
+
+REL
+Release
+
+POL
+Policy
+
+
+
+───
+
+4. Identifier Specification
+Każdy identyfikator MUST być unikalny.
+Przykłady:
+text
+APS-001
+INV-001
+ADR-001
+ARR-001
+CONF-001
+FIX-001
+EVID-001
+
+
+───
+
+5. Document Status
+Każdy dokument posiada jeden status.
+
+Status
+Znaczenie
+
+Draft
+W trakcie opracowania
+
+Review
+W przeglądzie
+
+Approved
+Zatwierdzony
+
+Frozen
+Niezmienny
+
+Deprecated
+Wycofywany
+
+Archived
+Archiwalny
+
+
+
+───
+
+6. Requirement Levels
+Znaczenie słów normatywnych:
+
+Termin
+Znaczenie
+
+MUST
+Wymaganie obowiązkowe
+
+MUST NOT
+Działanie zabronione
+
+SHOULD
+Silna rekomendacja
+
+SHOULD NOT
+Zalecenie unikania
+
+MAY
+Działanie opcjonalne
+
+
+
+───
+
+7. Canonical Registry
+Projekt prowadzi centralny rejestr obejmujący:
+• Dokumenty
+• Protocol Invariants
+• ADR
+• ARR
+• RFC
+• Evidence
+• Conformance Tests
+• Fixtures
+• Releases
+• Policies
+Każdy wpis zawiera:
+• Identifier
+• Version
+• Owner
+• Status
+• Related Documents
+• Last Review
+
+───
+
+8. Reserved Terms
+Poniższe terminy nie powinny być używane jako synonimy pojęć Aura:
+• Reputation
+• Social Score
+• Trust Score
+• Black Box
+• Magic
+• Unknown State
+Ich użycie może prowadzić do błędnej interpretacji projektu.
+
+───
+
+9. Traceability
+Każde wymaganie powinno być możliwe do prześledzenia:
+text
+Requirement
+      ↓
+Invariant
+      ↓
+Test
+      ↓
+Evidence
+      ↓
+Release
+
+Żaden element nie powinien pozostawać bez powiązania z odpowiednimi artefaktami.
+
+───
+
+10. Compatibility Rules
+Wszystkie dokumenty MUST:
+• korzystać z terminów APS-000,
+• stosować jednolite identyfikatory,
+• zachowywać spójność numeracji,
+• odwoływać się do dokumentów kanonicznych.
+
+───
+
+Appendix A — Canonical Prefix Registry
+
+Prefix
+Description
+
+APS
+Protocol Specification
+
+INV
+Protocol Invariant
+
+ADR
+Architecture Decision Record
+
+ARR
+Architecture Review Record
+
+RFC
+Request for Comments
+
+CONF
+Conformance Test
+
+FIX
+Reference Fixture
+
+EVID
+Evidence
+
+REL
+Release
+
+POL
+Policy
+
+DOC
+Documentation
+
+
+
+───
+
+Appendix B — Naming Rules
+• Nazwy dokumentów: UPPER_SNAKE_CASE lub oficjalny tytuł.
+• Identyfikatory: PREFIX-NNN.
+• Wersje: Semantic Versioning.
+• Jeden identyfikator nigdy nie może zostać ponownie użyty.
+
+───
+
+Ocena architektoniczna
+Po zakończeniu APS-000 mamy już trzy warstwy fundamentów:
+• ❄️ AURA Constitution – definiuje wartości i zasady nadrzędne.
+• 📘 APS-000 Foundation & Terminology – definiuje wspólny język i reguły identyfikacji.
+• 📗 APS-001 Protocol Specification – definiuje zachowanie protokołu.
+Dopiero teraz możemy bezpiecznie rozpocząć APS-100 — Protocol Invariants, ponieważ wszystkie pojęcia, identyfikatory i poziomy wymagań są już jednoznacznie zdefiniowane.

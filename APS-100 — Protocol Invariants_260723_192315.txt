@@ -1,0 +1,172 @@
+APS-100 — Protocol Invariants
+Document ID: APS-100
+Title: Protocol Invariants
+Version: 1.0-DRAFT
+Status: DRAFT
+Classification: Normative Specification
+Authority: APS-001 — Aura Protocol Specification
+
+───
+
+1. Purpose
+Protocol Invariants definiują właściwości, które MUST być zachowane przez każdą implementację zgodną z Aura Protocol.
+Naruszenie choć jednego Invariantu oznacza brak zgodności z protokołem.
+
+───
+
+2. Invariant Structure
+Każdy Invariant posiada obowiązkowo:
+• Identifier
+• Title
+• Requirement
+• Rationale
+• Verification Method
+• Required Evidence
+• Failure Classification
+• Related APS
+• Related ADR
+• Related Conformance Tests
+
+───
+
+3. Katalog Protocol Invariants v1.0
+INV-001 — Deterministic Evaluation
+Requirement (MUST)
+Identyczne dane wejściowe MUST prowadzić do identycznego wyniku.
+
+───
+
+INV-002 — Bit-Perfect Replay
+Requirement (MUST)
+Replay wykonania MUST odtworzyć identyczny rezultat na każdej zgodnej implementacji.
+
+───
+
+INV-003 — Canonical Serialization
+Requirement (MUST)
+Każdy obiekt protokołu MUST posiadać jednoznaczną reprezentację serializacji.
+
+───
+
+INV-004 — Immutable Evidence
+Requirement (MUST)
+Evidence po wygenerowaniu MUST NOT być modyfikowane.
+
+───
+
+INV-005 — Evidence Traceability
+Requirement (MUST)
+Każde Evidence MUST wskazywać wymaganie, które dokumentuje.
+
+───
+
+INV-006 — Platform Independence
+Requirement (MUST)
+Implementacja MUST zachowywać zgodność niezależnie od platformy sprzętowej i systemowej.
+
+───
+
+INV-007 — Zero Float Runtime
+Requirement (MUST)
+Logika protokołu MUST NOT wykorzystywać arytmetyki zmiennoprzecinkowej podczas wykonania, jeżeli naruszałoby to determinizm określony przez specyfikację.
+
+───
+
+INV-008 — Fail Closed
+Requirement (MUST)
+W przypadku błędu implementacja MUST zakończyć wykonanie w stanie bezpiecznym.
+
+───
+
+INV-009 — Version Consistency
+Requirement (MUST)
+Evidence, Protocol i Data Model MUST odnosić się do zgodnych wersji dokumentów.
+
+───
+
+INV-010 — Conformance Completeness
+Requirement (MUST)
+Każdy Invariant MUST posiadać odpowiadający mu test zgodności.
+
+───
+
+INV-011 — Cryptographic Integrity
+Requirement (MUST)
+Integralność Evidence MUST być możliwa do kryptograficznej weryfikacji.
+
+───
+
+INV-012 — Auditability
+Requirement (MUST)
+Każde wykonanie podlegające protokołowi MUST pozostawiać ślad audytowy zgodny z wymaganiami APS.
+
+───
+
+INV-013 — Policy Determinism
+Requirement (MUST)
+Ta sama wersja polityki oraz identyczne dane wejściowe MUST prowadzić do identycznej decyzji.
+
+───
+
+INV-014 — Reference Compatibility
+Requirement (MUST)
+Implementacja MUST przechodzić wszystkie obowiązujące Reference Fixtures.
+
+───
+
+INV-015 — Canonical Identity
+Requirement (MUST)
+Każdy artefakt protokołu MUST posiadać jednoznaczny identyfikator zgodny z APS-000.
+
+───
+
+4. Failure Classification
+Każde naruszenie klasyfikowane jest jako:
+• Critical — naruszenie zgodności z protokołem.
+• Major — wpływ na zgodność wymagający poprawy.
+• Minor — niespójność niewpływająca na wynik protokołu.
+• Informational — zalecenie lub obserwacja.
+
+───
+
+5. Traceability Matrix
+Każdy Invariant MUST posiadać powiązania:
+text
+INV
+ ↓
+APS Requirement
+ ↓
+Conformance Test
+ ↓
+Evidence
+ ↓
+ADR
+ ↓
+Release
+
+To zapewnia pełną identyfikowalność od wymagania do wydania.
+
+───
+
+6. Compliance Rules
+Implementacja może zostać oznaczona jako Aura Protocol Conformant wyłącznie wtedy, gdy:
+• wszystkie Invariants mają status PASS,
+• wszystkie wymagane testy zgodności zakończyły się sukcesem,
+• wygenerowano kompletny Evidence Pack,
+• nie występują naruszenia klasy Critical.
+
+───
+
+7. Extension Rules
+Nowe Invariants:
+• MUST posiadać unikalny identyfikator,
+• MUST definiować metodę weryfikacji,
+• MUST posiadać co najmniej jeden test zgodności,
+• MUST określać wymagane Evidence.
+Usunięcie Invariantu wymaga nowej wersji APS oraz formalnego procesu zmiany.
+
+───
+
+Moja rekomendacja architektoniczna
+Po zakończeniu APS-100 nie proponowałbym od razu przechodzić do APS-200.
+Najpierw utworzyłbym Canonical Invariant Registry (CIR) – centralny rejestr wszystkich Invariantów z ich statusem, wersją, testami i powiązanymi dokumentami. Dzięki temu APS-100 pozostanie czytelną specyfikacją, a szczegółowe zarządzanie Invariantami będzie odbywało się w dedykowanym rejestrze. To rozwiązanie dobrze skaluje się wraz z rozwojem projektu i ułatwia audyty.

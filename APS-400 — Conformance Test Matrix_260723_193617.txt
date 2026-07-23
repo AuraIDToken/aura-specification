@@ -1,0 +1,180 @@
+APS-400 — Conformance Test Matrix
+Document ID: APS-400
+Title: Conformance Test Matrix
+Version: 1.0-DRAFT
+Status: DRAFT
+Classification: Normative Specification
+Authority: APS-001 · APS-100 · APS-200 · APS-300
+
+───
+
+1. Purpose
+APS-400 definiuje oficjalny zestaw testów zgodności (Conformance Tests), które każda implementacja Aura MUST przejść, aby zostać uznana za zgodną z protokołem.
+
+───
+
+2. Test Categories
+Każdy test należy do jednej z kategorii:
+
+Kategoria
+Cel
+
+Functional
+Weryfikacja poprawności funkcjonalnej
+
+Determinism
+Powtarzalność wyników
+
+Replay
+Odtwarzalność wykonania
+
+Serialization
+Zgodność z Canonical Data Model
+
+Evidence
+Poprawność Evidence Pack
+
+Integrity
+Integralność danych
+
+Security
+Weryfikacja wymagań bezpieczeństwa
+
+Compatibility
+Zgodność wersji protokołu
+
+
+
+───
+
+3. Test Definition
+Każdy test posiada obowiązkowo:
+• Test ID
+• Name
+• Purpose
+• Related APS
+• Related Invariant(s)
+• Preconditions
+• Test Procedure
+• Expected Result
+• Evidence Required
+• PASS / FAIL Criteria
+
+───
+
+4. Canonical Test Matrix
+CONF-001 — Deterministic Evaluation
+Related Invariant: INV-001
+Cel: Sprawdzenie, że identyczne dane wejściowe dają identyczny wynik.
+PASS: Wyniki są identyczne.
+
+───
+
+CONF-002 — Replay Verification
+Related Invariant: INV-002
+Cel: Odtworzenie wykonania z Evidence Pack.
+
+───
+
+CONF-003 — Canonical Serialization
+Related Invariant: INV-003
+Cel: Weryfikacja zgodności serializacji z APS-200.
+
+───
+
+CONF-004 — Evidence Integrity
+Related Invariant: INV-004
+Cel: Sprawdzenie integralności obiektu Evidence.
+
+───
+
+CONF-005 — Traceability
+Related Invariant: INV-005
+Cel: Weryfikacja pełnej ścieżki Requirement → Invariant → Test → Evidence.
+
+───
+
+CONF-006 — Platform Independence
+Related Invariant: INV-006
+Cel: Porównanie wyników na różnych platformach.
+
+───
+
+CONF-007 — Fail Closed
+Related Invariant: INV-008
+Cel: Weryfikacja bezpiecznego zakończenia działania w przypadku błędu.
+
+───
+
+CONF-008 — Version Compatibility
+Related Invariant: INV-009
+Cel: Sprawdzenie zgodności wersji APS, modelu danych i Evidence.
+
+───
+
+CONF-009 — Evidence Completeness
+Cel: Weryfikacja kompletności Evidence Pack.
+
+───
+
+CONF-010 — Cryptographic Verification
+Related Invariant: INV-011
+Cel: Weryfikacja integralności kryptograficznej.
+
+───
+
+5. Test Results
+Każdy test zwraca jeden z wyników:
+• PASS
+• FAIL
+• NOT APPLICABLE
+• ERROR
+
+───
+
+6. Conformance Report
+Po wykonaniu wszystkich testów implementacja generuje raport zawierający:
+• identyfikator implementacji,
+• wersję protokołu,
+• listę wykonanych testów,
+• wyniki,
+• identyfikator Evidence Pack,
+• datę wykonania.
+
+───
+
+7. Certification Rules
+Implementacja może zostać oznaczona jako Aura Protocol Conformant, jeżeli:
+• wszystkie testy obowiązkowe zakończyły się wynikiem PASS,
+• nie występują naruszenia typu Critical,
+• wygenerowano poprawny Evidence Pack,
+• zachowano zgodność z obowiązującą wersją APS.
+
+───
+
+8. Traceability Matrix
+Każdy test MUST być powiązany z:
+text
+APS Requirement
+      ↓
+Protocol Invariant
+      ↓
+Conformance Test
+      ↓
+Evidence
+      ↓
+Release
+
+
+───
+
+9. Versioning
+Każda zmiana testów zgodności wymaga:
+• nowej wersji APS-400,
+• aktualizacji odpowiednich Reference Fixtures,
+• zachowania pełnej identyfikowalności zmian.
+
+───
+
+Rekomendacja architektoniczna
+Po APS-400 proponuję utworzyć APS-500 — Reference Fixtures. Będzie to zbiór kanonicznych danych testowych (wejścia, oczekiwane wyniki i Evidence Pack), dzięki którym implementacje w Pythonie, Rust, C++ czy Go będą mogły wykonać identyczne testy i uzyskać porównywalne rezultaty.

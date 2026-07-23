@@ -1,0 +1,132 @@
+APS-500 — Reference Fixtures
+Document ID: APS-500
+Title: Reference Fixtures
+Version: 1.0-DRAFT
+Status: DRAFT
+Classification: Normative Test Specification
+Authority: APS-100 · APS-200 · APS-300 · APS-400
+
+───
+
+1. Purpose
+APS-500 definiuje kanoniczny zestaw danych referencyjnych (Reference Fixtures) wykorzystywanych do walidacji implementacji Aura Protocol.
+Każda implementacja zgodna z protokołem MUST przejść testy z użyciem tych samych danych referencyjnych.
+
+───
+
+2. Objectives
+Reference Fixtures zapewniają:
+• porównywalność implementacji,
+• powtarzalność testów,
+• deterministyczną walidację,
+• możliwość certyfikacji zgodności.
+
+───
+
+3. Fixture Structure
+Każdy Fixture składa się z:
+• Fixture ID
+• Version
+• Description
+• Input Data
+• Expected Output
+• Expected Evidence
+• Related Invariants
+• Related Conformance Tests
+
+───
+
+4. Fixture Categories
+
+Kategoria
+Cel
+
+FIX-CORE
+Podstawowe scenariusze działania
+
+FIX-BOUNDARY
+Wartości graniczne
+
+FIX-ERROR
+Obsługa błędów
+
+FIX-REPLAY
+Testy odtwarzania
+
+FIX-EVIDENCE
+Walidacja Evidence Pack
+
+FIX-COMPAT
+Zgodność między wersjami
+
+
+
+───
+
+5. Canonical Fixture Example
+FIX-001
+Name: Basic Evaluation
+Input: Referencyjny zestaw danych wejściowych.
+Expected Result: Wynik zgodny z APS-200.
+Expected Evidence: Evidence Pack zgodny z APS-300.
+Related Test: CONF-001.
+Related Invariant: INV-001.
+
+───
+
+6. Fixture Versioning
+Każdy Fixture posiada:
+• fixture_id
+• fixture_version
+• protocol_version
+Zmiana Fixture wymaga nowej wersji oraz aktualizacji odpowiednich testów zgodności.
+
+───
+
+7. Validation Rules
+Implementacja MUST:
+• używać niezmodyfikowanych Fixture,
+• generować oczekiwane wyniki,
+• generować wymagane Evidence,
+• przechodzić wszystkie powiązane testy.
+
+───
+
+8. Traceability
+Każdy Fixture MUST być powiązany z:
+text
+Protocol Requirement
+        ↓
+Protocol Invariant
+        ↓
+Conformance Test
+        ↓
+Reference Fixture
+        ↓
+Evidence Pack
+
+
+───
+
+9. Certification
+Reference Fixtures stanowią obowiązkową podstawę procesu certyfikacji implementacji Aura.
+Brak zgodności z wymaganym Fixture oznacza niezaliczenie odpowiedniego testu Conformance.
+
+───
+
+10. Repository Organization
+Rekomendowana struktura:
+text
+fixtures/
+├── core/
+├── boundary/
+├── error/
+├── replay/
+├── evidence/
+└── compatibility/
+
+Każdy katalog zawiera:
+• dane wejściowe,
+• oczekiwane wyniki,
+• oczekiwany Evidence Pack,
+• dokumentację Fixture.

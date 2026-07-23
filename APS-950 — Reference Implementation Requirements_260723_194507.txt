@@ -1,0 +1,170 @@
+APS-950 — Reference Implementation Requirements
+Document ID: APS-950
+Title: Reference Implementation Requirements
+Version: 1.0-DRAFT
+Status: DRAFT
+Classification: Normative Implementation Specification
+Authority: APS-001 · APS-100 · APS-200 · APS-300 · APS-400 · APS-500 · APS-900
+
+───
+
+1. Purpose
+APS-950 definiuje wymagania dla implementacji referencyjnych Aura Protocol.
+Implementacja referencyjna stanowi wzorzec zgodności dla wszystkich przyszłych implementacji.
+
+───
+
+2. Objectives
+Reference Implementation MUST:
+• implementować wszystkie obowiązkowe wymagania APS,
+• przechodzić pełny zestaw testów Conformance,
+• generować poprawny Evidence Pack,
+• zachowywać pełną zgodność z Protocol Invariants,
+• umożliwiać niezależny audyt.
+
+───
+
+3. Required Components
+Każda implementacja referencyjna MUST zawierać:
+
+ID
+Komponent
+Status
+
+RI-001
+Protocol Engine
+REQUIRED
+
+RI-002
+Validation Layer
+REQUIRED
+
+RI-003
+Evidence Generator
+REQUIRED
+
+RI-004
+Conformance Runner
+REQUIRED
+
+RI-005
+Fixture Loader
+REQUIRED
+
+RI-006
+Audit Interface
+REQUIRED
+
+RI-007
+Version Information
+REQUIRED
+
+
+
+───
+
+4. Repository Requirements
+Repozytorium implementacji MUST zawierać:
+text
+/docs
+/spec
+/tests
+/fixtures
+/src
+/examples
+/LICENSE
+/CHANGELOG
+/README
+
+
+───
+
+5. Coding Requirements
+Implementacja MUST:
+• być deterministyczna,
+• być możliwa do odtworzenia,
+• nie naruszać Protocol Invariants,
+• posiadać pełne testy jednostkowe,
+• posiadać testy zgodności APS-400.
+
+───
+
+6. Build Requirements
+Proces budowania MUST:
+• być powtarzalny,
+• być wersjonowany,
+• generować identyczne artefakty dla tej samej wersji źródła,
+• dokumentować użyte zależności.
+
+───
+
+7. Test Requirements
+Przed wydaniem implementacja MUST przejść:
+• Unit Tests,
+• Integration Tests,
+• Conformance Tests,
+• Replay Tests,
+• Evidence Validation,
+• Security Validation.
+
+───
+
+8. Documentation Requirements
+Każda implementacja MUST zawierać:
+• README,
+• instrukcję uruchomienia,
+• opis architektury,
+• mapowanie do APS,
+• listę wspieranych wersji protokołu.
+
+───
+
+9. Release Requirements
+Każde wydanie MUST zawierać:
+• numer wersji,
+• Compatibility Statement,
+• Conformance Report,
+• Evidence Pack,
+• Release Notes.
+
+───
+
+10. Certification
+Implementacja może zostać oznaczona jako Aura Reference Implementation, jeżeli:
+• spełnia wszystkie wymagania APS-950,
+• uzyskała wynik PASS dla wszystkich obowiązkowych testów APS-400,
+• posiada kompletną dokumentację,
+• przeszła Architecture Review.
+
+───
+
+11. Supported Reference Implementations
+Na obecnym etapie projektu przewiduje się następujące implementacje referencyjne:
+
+ID
+Implementacja
+Rola
+
+RI-PY
+aura-poc-a-core
+Referencyjna implementacja w Pythonie
+
+RI-RS
+aura-guard
+Referencyjna implementacja w Rust
+
+RI-TEST
+Reference Fixtures Runner
+Implementacja referencyjna środowiska testowego
+
+
+Każda nowa implementacja może zostać dodana wyłącznie po przejściu pełnego procesu zgodności z APS.
+
+───
+
+12. Governance
+Zmiany w implementacjach referencyjnych:
+• MUST być zgodne z APS,
+• MUST przejść Architecture Review,
+• MUST zachować zgodność z obowiązującymi Protocol Invariants,
+• MUST być udokumentowane w ADR oraz CHANGELOG.

@@ -1,0 +1,149 @@
+APS-200 — Canonical Data Model
+Document ID: APS-200
+Title: Canonical Data Model
+Version: 1.0-DRAFT
+Status: DRAFT
+Classification: Normative Specification
+Authority: APS-001 · APS-100
+
+───
+
+1. Purpose
+APS-200 definiuje kanoniczny model danych Aura Protocol.
+Każda implementacja zgodna z protokołem MUST reprezentować informacje zgodnie z wymaganiami tego dokumentu. Wewnętrzne struktury mogą się różnić, jednak semantyka i kontrakt danych muszą pozostać równoważne.
+
+───
+
+2. Design Principles
+Model danych MUST być:
+• Deterministyczny
+• Jednoznaczny
+• Rozszerzalny
+• Wersjonowalny
+• Niezależny od języka programowania
+• Niezależny od formatu serializacji
+
+───
+
+3. Core Entities
+APS-200 definiuje następujące encje kanoniczne:
+
+ID
+Encja
+Opis
+
+ENT-001
+Protocol Header
+Metadane wykonania
+
+ENT-002
+Evaluation Request
+Dane wejściowe
+
+ENT-003
+Evaluation Result
+Wynik oceny
+
+ENT-004
+Policy Reference
+Referencja do polityki
+
+ENT-005
+Evidence
+Dowód wykonania
+
+ENT-006
+Attestation
+Potwierdzenie zgodności
+
+ENT-007
+Audit Record
+Rekord audytowy
+
+ENT-008
+Implementation Metadata
+Informacje o implementacji
+
+
+
+───
+
+4. Common Object Contract
+Każda encja MUST zawierać wspólny zestaw pól:
+• object_id
+• object_type
+• protocol_version
+• schema_version
+• created_at
+• integrity_hash
+Zapewnia to spójność wszystkich obiektów w ekosystemie Aura.
+
+───
+
+5. Entity Definitions
+Każda encja będzie opisana według jednolitego szablonu:
+• Identifier
+• Purpose
+• Required Fields
+• Optional Fields
+• Constraints
+• Related Invariants
+• Related Evidence
+• Serialization Rules
+
+───
+
+6. Relationships
+Model danych definiuje relacje pomiędzy encjami:
+text
+Evaluation Request
+        │
+        ▼
+Evaluation Result
+        │
+        ▼
+Evidence
+        │
+        ▼
+Attestation
+        │
+        ▼
+Audit Record
+
+Każda relacja MUST być możliwa do prześledzenia.
+
+───
+
+7. Validation Rules
+Każdy obiekt MUST przejść:
+• walidację struktury,
+• walidację typów,
+• walidację wymaganych pól,
+• walidację integralności,
+• walidację zgodności z APS-100.
+
+───
+
+8. Serialization Requirements
+Implementacje mogą wykorzystywać różne formaty (np. JSON, CBOR, Protocol Buffers), pod warunkiem że:
+• zachowują pełną semantykę modelu,
+• zapewniają deterministyczną serializację tam, gdzie wymaga tego protokół,
+• nie naruszają INV-003 — Canonical Serialization.
+
+───
+
+9. Compatibility
+Zmiany modelu danych podlegają wersjonowaniu semantycznemu.
+Każda zmiana MUST określać:
+• wpływ na zgodność,
+• wymagane migracje,
+• zgodność wsteczną (jeśli dotyczy).
+
+───
+
+10. Traceability
+Każda encja modelu danych MUST być powiązana z:
+• odpowiednimi Protocol Invariants (INV-xxx),
+• wymaganiami APS,
+• obiektami Evidence,
+• testami zgodności (CONF-xxx).
