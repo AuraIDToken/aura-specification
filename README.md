@@ -1,6 +1,6 @@
 # Aura Protocol Specification
 
-> **Note:** This repository is being migrated to the [AuraProtocol](https://github.com/AuraProtocol) organization.
+> **Note:** This repository is being migrated to the [Aura&Protocol](https://github.com/AuraProtocol) organization.
 > Future canonical location: `https://github.com/AuraProtocol/aura-specification`
 
 ## Overview
