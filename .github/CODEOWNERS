@@ -1,0 +1,7 @@
+# CODEOWNERS
+# Every file in this repository requires review by the Chief Architect.
+* @AuraIDToken
+
+/constitution/ @AuraIDToken
+/aps/ @AuraIDToken
+/governance/ @AuraIDToken
