@@ -1,8 +1,5 @@
 # Aura Protocol Specification
 
-> **Note:** This repository is being migrated to the [Aura&Protocol](https://github.com/AuraProtocol) organization.
-> Future canonical location: `https://github.com/AuraProtocol/aura-specification`
-
 ## Overview
 
 This repository contains the full Aura Protocol Specification (APS) — a formal set of documents defining the protocol invariants, data models, evidence model, conformance tests, reference fixtures, compliance mappings, and reference implementation requirements for the Aura identity token system.
