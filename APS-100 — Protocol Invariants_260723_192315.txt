@@ -131,7 +131,6 @@ Każde naruszenie klasyfikowane jest jako:
 
 5. Traceability Matrix
 Każdy Invariant MUST posiadać powiązania:
-text
 INV
  ↓
 APS Requirement

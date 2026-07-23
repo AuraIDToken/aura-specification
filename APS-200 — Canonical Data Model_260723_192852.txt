@@ -95,7 +95,6 @@ Każda encja będzie opisana według jednolitego szablonu:
 
 6. Relationships
 Model danych definiuje relacje pomiędzy encjami:
-text
 Evaluation Request
         │
         ▼

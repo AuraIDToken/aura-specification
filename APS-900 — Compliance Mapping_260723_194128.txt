@@ -26,7 +26,6 @@ Compliance Mapping zapewnia:
 
 3. Mapping Model
 Każde wymaganie przechodzi przez następujący łańcuch:
-text
 AURA Constitution
         ↓
 APS Requirement
@@ -166,7 +165,6 @@ Każda nowa wersja APS wymaga aktualizacji odpowiednich wpisów w Compliance Map
 ───
 
 Załącznik A — Canonical Compliance Flow
-text
 Constitution
       ↓
 Protocol Specification

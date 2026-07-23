@@ -11,7 +11,8 @@ This repository contains the full Aura Protocol Specification (APS) — a formal
 
 | Document | Title |
 |----------|-------|
-| APS-000 | Foundation & Introduction |
+| APS-000 | Foundation & Terminology |
+| APS-001 | Aura Protocol Specification *(referenced in authority fields; document not yet created)* |
 | APS-100 | Protocol Invariants |
 | APS-200 | Canonical Data Model |
 | APS-300 | Evidence Model |

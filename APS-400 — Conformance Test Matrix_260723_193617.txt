@@ -113,6 +113,7 @@ Cel: Sprawdzenie zgodności wersji APS, modelu danych i Evidence.
 ───
 
 CONF-009 — Evidence Completeness
+Related Invariant: INV-004 · INV-005
 Cel: Weryfikacja kompletności Evidence Pack.
 
 ───
@@ -154,7 +155,6 @@ Implementacja może zostać oznaczona jako Aura Protocol Conformant, jeżeli:
 
 8. Traceability Matrix
 Każdy test MUST być powiązany z:
-text
 APS Requirement
       ↓
 Protocol Invariant

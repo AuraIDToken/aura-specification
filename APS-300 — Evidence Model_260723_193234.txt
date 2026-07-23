@@ -77,7 +77,7 @@ Każdy obiekt Evidence MUST zawierać co najmniej:
 • input_hash
 • output_hash
 • evidence_hash
-• previous_evidence_hash(jeżeli dotyczy)
+• previous_evidence_hash (jeżeli dotyczy)
 • attestation_reference
 
 ───
@@ -125,7 +125,6 @@ Specyfikacja definiuje wymagania dotyczące struktury i weryfikowalności Eviden
 
 11. Traceability
 Każde Evidence MUST być możliwe do powiązania z:
-text
 APS Requirement
         ↓
 Protocol Invariant
