@@ -94,7 +94,6 @@ Implementacja MUST:
 
 8. Traceability
 Każdy Fixture MUST być powiązany z:
-text
 Protocol Requirement
         ↓
 Protocol Invariant
@@ -116,7 +115,6 @@ Brak zgodności z wymaganym Fixture oznacza niezaliczenie odpowiedniego testu Co
 
 10. Repository Organization
 Rekomendowana struktura:
-text
 fixtures/
 ├── core/
 ├── boundary/

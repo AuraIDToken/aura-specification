@@ -120,7 +120,6 @@ Policy
 4. Identifier Specification
 Każdy identyfikator MUST być unikalny.
 Przykłady:
-text
 APS-001
 INV-001
 ADR-001
@@ -221,7 +220,6 @@ Ich użycie może prowadzić do błędnej interpretacji projektu.
 
 9. Traceability
 Każde wymaganie powinno być możliwe do prześledzenia:
-text
 Requirement
       ↓
 Invariant

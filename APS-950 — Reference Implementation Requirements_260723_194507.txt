@@ -65,7 +65,6 @@ REQUIRED
 
 4. Repository Requirements
 Repozytorium implementacji MUST zawierać:
-text
 /docs
 /spec
 /tests

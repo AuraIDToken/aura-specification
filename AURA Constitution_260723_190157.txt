@@ -56,7 +56,6 @@ Każda decyzja musi być zgodna z następującymi zasadami:
 
 Article V — Canonical Hierarchy
 Hierarchia obowiązujących dokumentów:
-text
 AURA Constitution
         ↓
 Aura Protocol Specification
@@ -109,7 +108,6 @@ Każdy artefakt posiada identyfikator, wersję, właściciela i status.
 
 Article VII — Governance Lifecycle
 Każda istotna zmiana przechodzi następujący proces:
-text
 Vision
     ↓
 Specification
