@@ -1,45 +1,191 @@
 # Aura Protocol Specification
 
-## Overview
+> **The single canonical source of truth for the Aura Protocol.**
 
-This repository contains the full Aura Protocol Specification (APS) — a formal set of documents defining the protocol invariants, data models, evidence model, conformance tests, reference fixtures, compliance mappings, and reference implementation requirements for the Aura identity token system.
+[![Status: Active](https://img.shields.io/badge/status-active-green.svg)](CHANGELOG.md)
+[![Constitution: FROZEN](https://img.shields.io/badge/constitution-FROZEN-blue.svg)](constitution/AURA_CONSTITUTION.md)
+[![License: CC BY 4.0](https://img.shields.io/badge/license-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 
-## Documents
+---
 
-| Document | Title |
-|----------|-------|
-| APS-000 | Foundation & Terminology |
-| APS-001 | Aura Protocol Specification *(referenced in authority fields; document not yet created)* |
-| APS-100 | Protocol Invariants |
-| APS-200 | Canonical Data Model |
-| APS-300 | Evidence Model |
-| APS-400 | Conformance Test Matrix |
-| APS-500 | Reference Fixtures |
-| APS-900 | Compliance Mapping |
-| APS-950 | Reference Implementation Requirements |
-| — | AURA Constitution |
+## What Is This Repository?
 
-## AuraProtocol Organization
+`aura-specification` is the normative documentation repository for the **Aura Protocol** — an open, deterministic trust layer for AI systems. It contains no implementation code.
 
-The Aura project is organized under the **AuraProtocol** GitHub organization:
+It is designed in the tradition of IETF RFCs, W3C specifications, and Kubernetes Enhancement Proposals: every protocol behavior is fully specified, versioned, and traceable before any implementation is written or changed.
+
+**If documentation and implementation disagree, documentation wins.**
+
+---
+
+## Repository Map
+
+```
+aura-specification/
+├── constitution/          Constitutional governance documents
+├── specification/         Top-level protocol specification (APS-001)
+├── aps/                   Numbered APS normative documents
+├── invariants/            Protocol Invariant registry
+├── conformance/           Conformance Test Matrix (APS-400)
+├── fixtures/              Reference Fixtures (APS-500)
+├── evidence/              Evidence Model and templates (APS-300)
+├── compliance/            Compliance Mapping (APS-900)
+├── adrs/                  Architecture Decision Records
+├── rfcs/                  Requests for Comments
+├── reference/             Reference Implementation Requirements (APS-950)
+├── glossary/              Canonical terminology (APS-000)
+├── diagrams/              Architecture and flow diagrams
+├── templates/             Document templates
+├── examples/              Usage examples and walkthroughs
+├── scripts/               Tooling for traceability and validation
+└── releases/              Release artifacts and conformance reports
+```
+
+---
+
+## Specification Documents
+
+| Document | Title | Status |
+|----------|-------|--------|
+| [AURA Constitution](constitution/AURA_CONSTITUTION.md) | Constitutional Governance | FROZEN |
+| [APS-000](aps/APS-000_FOUNDATION_AND_TERMINOLOGY.md) | Foundation & Terminology | DRAFT |
+| [APS-001](aps/APS-001_PROTOCOL_SPECIFICATION.md) | Protocol Specification | TODO |
+| [APS-100](aps/APS-100_PROTOCOL_INVARIANTS.md) | Protocol Invariants | DRAFT |
+| [APS-200](aps/APS-200_CANONICAL_DATA_MODEL.md) | Canonical Data Model | DRAFT |
+| [APS-300](aps/APS-300_EVIDENCE_MODEL.md) | Evidence Model | DRAFT |
+| [APS-400](aps/APS-400_CONFORMANCE_TEST_MATRIX.md) | Conformance Test Matrix | DRAFT |
+| [APS-500](aps/APS-500_REFERENCE_FIXTURES.md) | Reference Fixtures | DRAFT |
+| [APS-900](aps/APS-900_COMPLIANCE_MAPPING.md) | Compliance Mapping | DRAFT |
+| [APS-950](aps/APS-950_REFERENCE_IMPLEMENTATION_REQUIREMENTS.md) | Reference Implementation Requirements | DRAFT |
+
+---
+
+## Canonical Document Hierarchy
+
+```
+AURA Constitution (FROZEN)
+        ↓
+APS-001 Protocol Specification
+        ↓
+APS-100 Protocol Invariants
+        ↓
+APS-200 Canonical Data Model  ←→  APS-300 Evidence Model
+        ↓
+APS-400 Conformance Test Matrix
+        ↓
+APS-500 Reference Fixtures
+        ↓
+APS-900 Compliance Mapping
+        ↓
+APS-950 Reference Implementation Requirements
+```
+
+Higher documents have authority over lower documents. No implementation may contradict any document in this hierarchy.
+
+---
+
+## Traceability Model
+
+Every protocol requirement is traceable end-to-end:
+
+```
+Constitution Principle
+        ↓
+APS Requirement
+        ↓
+Protocol Invariant (INV-xxx)
+        ↓
+Canonical Data Model Entity (ENT-xxx)
+        ↓
+Evidence Object (EVID-xxx)
+        ↓
+Conformance Test (CONF-xxx)
+        ↓
+Reference Fixture (FIX-xxx)
+        ↓
+Reference Implementation
+        ↓
+Release + Conformance Report
+```
+
+See [compliance/TRACEABILITY_MODEL.md](compliance/TRACEABILITY_MODEL.md) for the full model.
+
+---
+
+## Protocol Invariants
+
+15 invariants govern all conformant implementations. A violation of any invariant is a conformance failure.
+
+| ID | Title | Class |
+|----|-------|-------|
+| INV-001 | Deterministic Evaluation | Critical |
+| INV-002 | Bit-Perfect Replay | Critical |
+| INV-003 | Canonical Serialization | Critical |
+| INV-004 | Immutable Evidence | Critical |
+| INV-005 | Evidence Traceability | Critical |
+| INV-006 | Platform Independence | Critical |
+| INV-007 | Zero Float Runtime | Critical |
+| INV-008 | Fail Closed | Critical |
+| INV-009 | Version Consistency | Major |
+| INV-010 | Conformance Completeness | Critical |
+| INV-011 | Cryptographic Integrity | Critical |
+| INV-012 | Auditability | Critical |
+| INV-013 | Policy Determinism | Critical |
+| INV-014 | Reference Compatibility | Critical |
+| INV-015 | Canonical Identity | Major |
+
+See [invariants/INVARIANT_REGISTRY.md](invariants/INVARIANT_REGISTRY.md) for full definitions.
+
+---
+
+## Reference Implementations
+
+| ID | Repository | Language | Role |
+|----|-----------|----------|------|
+| RI-PY | [aura-poc-a-core](https://github.com/AuraIDToken/aura-poc-a-core-v3.3) | Python | Deterministic measurement engine (Layer 0) |
+| RI-RS | [aura-guard](https://github.com/AuraIDToken/aura-guard-v1.3) | Rust | Audit middleware with hash-chained evidence log |
+
+See [reference/REFERENCE_IMPLEMENTATIONS.md](reference/REFERENCE_IMPLEMENTATIONS.md) for conformance status.
+
+---
+
+## Governance
+
+- **Chief Architect**: holds sole approval authority over canonical documents
+- **AI Assistants**: may propose, implement, and test — may not approve or freeze documents
+- **ADR process**: all architectural decisions documented in [adrs/](adrs/)
+- **RFC process**: all protocol change proposals documented in [rfcs/](rfcs/)
+
+See [GOVERNANCE.md](GOVERNANCE.md) for the full governance model.
+
+---
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to propose changes, author specifications, and submit RFCs.
+
+See [STYLE_GUIDE.md](STYLE_GUIDE.md) for document formatting conventions.
+
+---
+
+## Organization
 
 | Repository | Description |
 |------------|-------------|
-| [`AuraProtocol/aura-specification`](https://github.com/AuraProtocol/aura-specification) | This repository — full APS documentation |
-| [`AuraProtocol/aura-poc-a-core`](https://github.com/AuraProtocol/aura-poc-a-core) | Reference implementation in Python |
-| [`AuraProtocol/aura-guard`](https://github.com/AuraProtocol/aura-guard) | Reference implementation in Rust |
-| [`AuraProtocol/aura-fixtures`](https://github.com/AuraProtocol/aura-fixtures) | Reference test fixtures |
-| [`AuraProtocol/aura-examples`](https://github.com/AuraProtocol/aura-examples) | Usage examples |
+| [`AuraIDToken/aura-specification`](https://github.com/AuraIDToken/aura-specification) | This repository |
+| [`AuraIDToken/aura-poc-a-core-v3.3`](https://github.com/AuraIDToken/aura-poc-a-core-v3.3) | Python reference implementation |
+| [`AuraIDToken/aura-guard-v1.3`](https://github.com/AuraIDToken/aura-guard-v1.3) | Rust reference implementation |
 
-## Status
+---
 
-- [ ] Organization `AuraProtocol` created on GitHub
-- [ ] `aura-specification` transferred to `AuraProtocol`
-- [ ] `aura-poc-a-core` transferred to `AuraProtocol`
-- [ ] `aura-guard` transferred to `AuraProtocol`
-- [ ] `aura-fixtures` repository created
-- [ ] `aura-examples` repository created
+## Motto
+
+> *Specification creates trust.*
+> *Conformance preserves trust.*
+> *Evidence proves trust.*
+
+---
 
 ## License
 
-To be determined.
+Documentation: [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE).

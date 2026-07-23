@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/AuraIDToken/aura-specification/fixtures/schemas/common-object-contract.schema.json",
+  "title": "APS-200 Common Object Contract",
+  "_status": "TODO — pending finalization of APS-200",
+  "description": "Schema for the Common Object Contract fields required on every APS-200 entity (APS-200 Section 4).",
+  "type": "object",
+  "required": [
+    "object_id",
+    "object_type",
+    "protocol_version",
+    "schema_version",
+    "created_at",
+    "integrity_hash"
+  ],
+  "properties": {
+    "object_id": {
+      "type": "string",
+      "description": "Globally unique identifier. TODO: define format (UUID v4 recommended)."
+    },
+    "object_type": {
+      "type": "string",
+      "description": "APS-000 canonical type name.",
+      "enum": [
+        "ProtocolHeader",
+        "EvaluationRequest",
+        "EvaluationResult",
+        "PolicyReference",
+        "Evidence",
+        "Attestation",
+        "AuditRecord",
+        "ImplementationMetadata"
+      ]
+    },
+    "protocol_version": {
+      "type": "string",
+      "description": "APS version this object conforms to. TODO: define version format."
+    },
+    "schema_version": {
+      "type": "string",
+      "description": "Schema version of this entity definition."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC timestamp of object creation."
+    },
+    "integrity_hash": {
+      "type": "string",
+      "description": "SHA-256 hash of the canonical serialization of this object. TODO: define canonical serialization algorithm."
+    }
+  }
+}
