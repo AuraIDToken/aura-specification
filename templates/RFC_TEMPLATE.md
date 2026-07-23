@@ -94,7 +94,7 @@ Related ADR: ADR-NNN or —
 
 ## Comment Period Feedback
 
-[Updated by RFC author during comment period with summarised feedback and responses.]
+[Updated by RFC author during comment period with summarized feedback and responses.]
 
 ---
 
