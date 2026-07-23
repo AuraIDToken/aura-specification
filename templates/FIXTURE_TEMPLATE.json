@@ -1,0 +1,52 @@
+{
+  "_template": "APS-500 Reference Fixture Template",
+  "_instructions": "Copy this file, assign a FIX-NNN identifier, fill all TODO fields, remove _template and _instructions.",
+
+  "fixture_id": "FIX-NNN",
+  "fixture_version": "1.0",
+  "protocol_version": "TODO — specify target APS version",
+  "description": "TODO — one sentence description",
+  "category": "TODO — FIX-CORE | FIX-BOUNDARY | FIX-ERROR | FIX-REPLAY | FIX-EVIDENCE | FIX-COMPAT",
+  "related_invariants": ["TODO — e.g., INV-001"],
+  "related_conformance_tests": ["TODO — e.g., CONF-001"],
+
+  "input_data": {
+    "object_id": "TODO",
+    "object_type": "EvaluationRequest",
+    "protocol_version": "TODO",
+    "schema_version": "TODO",
+    "created_at": "TODO — ISO 8601 UTC",
+    "integrity_hash": "TODO — SHA-256",
+    "input_hash": "TODO — SHA-256 of request_fields canonical serialization",
+    "input_schema": "TODO",
+    "request_fields": {
+      "TODO": "Add canonical input fields per APS-200 ENT-002"
+    }
+  },
+
+  "expected_output": {
+    "object_id": "TODO",
+    "object_type": "EvaluationResult",
+    "protocol_version": "TODO",
+    "schema_version": "TODO",
+    "created_at": "TODO — ISO 8601 UTC",
+    "integrity_hash": "TODO — SHA-256",
+    "execution_id": "TODO",
+    "decision": "TODO — canonical decision value",
+    "output_hash": "TODO — SHA-256"
+  },
+
+  "expected_evidence": {
+    "evidence_id": "TODO",
+    "protocol_version": "TODO",
+    "schema_version": "TODO",
+    "implementation_id": "TODO",
+    "execution_id": "TODO",
+    "timestamp": "TODO — ISO 8601 UTC",
+    "policy_reference": "TODO",
+    "input_hash": "TODO — must match input_data.input_hash",
+    "output_hash": "TODO — must match expected_output.output_hash",
+    "evidence_hash": "TODO — SHA-256",
+    "attestation_reference": "TODO"
+  }
+}

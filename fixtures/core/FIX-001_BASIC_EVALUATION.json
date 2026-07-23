@@ -1,0 +1,35 @@
+{
+  "_comment": "FIX-001 — Basic Evaluation (PLACEHOLDER)",
+  "_status": "TODO",
+  "_note": "This fixture is a placeholder. Canonical input/output data requires APS-200 entity schemas to be finalized. See ROADMAP.md Milestone 2.",
+
+  "fixture_id": "FIX-001",
+  "fixture_version": "0.1-DRAFT",
+  "protocol_version": "TODO",
+  "description": "Basic protocol evaluation with a valid input and policy. Validates INV-001 (Deterministic Evaluation) and INV-014 (Reference Compatibility).",
+  "category": "FIX-CORE",
+  "related_invariants": ["INV-001", "INV-014"],
+  "related_conformance_tests": ["CONF-001"],
+
+  "input_data": {
+    "_todo": "TODO: Define canonical Evaluation Request (ENT-002) once APS-200 schemas are finalized.",
+    "object_type": "EvaluationRequest",
+    "protocol_version": "TODO",
+    "schema_version": "TODO",
+    "input_hash": "TODO",
+    "request_fields": {}
+  },
+
+  "expected_output": {
+    "_todo": "TODO: Define canonical Evaluation Result (ENT-003) once APS-200 schemas are finalized.",
+    "object_type": "EvaluationResult",
+    "decision": "TODO",
+    "output_hash": "TODO"
+  },
+
+  "expected_evidence": {
+    "_todo": "TODO: Define canonical Evidence Pack once APS-300 Evidence Pack format is finalized.",
+    "evidence_id": "TODO",
+    "evidence_hash": "TODO"
+  }
+}
